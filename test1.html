@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Hello World</title>
+    <style>
+        /* CSS Variables for easy theme switching */
+        :root {
+            --primary-bg: #ffffff;
+            --text-color: #333333;
+            --secondary-bg: #f4f4f9;
+            --accent-color: #007bff;
+            --border-color: #ccc;
+        }
+
+        /* Dark Mode Variables */
+        body.dark-mode {
+            --primary-bg: #121212;
+            --text-color: #e0e0e0;
+            --secondary-bg: #1e1e1e;
+            --accent-color: #bb86fc;
+            --border-color: #444;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container for centering and limiting width */
+        .container {
+            max-width: 800px;
+            width: 90%;
+            background-color: var(--secondary-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Button Styling */
+        #theme-toggle {
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.1s;
+            margin-bottom: 20px;
+        }
+
+        #theme-toggle:hover {
+            background-color: var(--accent-color) #2;
+        }
+
+        #theme-toggle:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="container">
+        <button id="theme-toggle">Toggle Dark Mode</button>
+        <h1 class="main-heading">Hello, World!</h1>
+        <p>This is a professionally styled page demonstrating a simple "Hello World" concept. The color scheme and layout have been improved, and a light/dark mode toggle has been added for enhanced user experience.</p>
+    </div>
+
+    <script>
+        const body = document.body;
+        const toggleButton = document.getElementById('theme-toggle');
+
+        // Function to initialize the theme based on stored preference or system preference
+        function initializeTheme() {
+            // Check local storage first
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme) {
+                body.className = storedTheme;
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                // Fallback to system preference
+                body.className = 'dark-mode';
+            } else {
+                body.className = 'light-mode';
+            }
+        }
+
+        // Function to handle the theme toggle
+        function toggleTheme() {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            }
+        }
+
+        // Event Listener and Initialization
+        toggleButton.addEventListener('click', toggleTheme);
+        initializeTheme();
+    </script>
+</body>
+</html>
