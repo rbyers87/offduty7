@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Hello World</title>
+    <title>Comprehensive HTML Demo</title>
     <style>
         /* CSS Variables for easy theme switching */
         :root {
@@ -12,6 +12,7 @@
             --secondary-bg: #f4f4f9;
             --accent-color: #007bff;
             --border-color: #ccc;
+            --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         /* Dark Mode Variables */
@@ -21,6 +22,7 @@
             --secondary-bg: #1e1e1e;
             --accent-color: #bb86fc;
             --border-color: #444;
+            --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         /* Base Styles */
@@ -44,7 +46,7 @@
             background-color: var(--secondary-bg);
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--box-shadow-light);
             margin-top: 30px;
         }
 
@@ -52,6 +54,14 @@
             color: var(--accent-color);
             margin-bottom: 20px;
             font-size: 2.5em;
+            text-align: center;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            color: var(--text-color);
         }
 
         p {
@@ -71,6 +81,8 @@
             font-size: 1em;
             transition: background-color 0.3s, transform 0.1s;
             margin-bottom: 20px;
+            display: block; /* Ensure it takes its own line */
+            width: fit-content;
         }
 
         #theme-toggle:hover {
@@ -80,49 +92,214 @@
         #theme-toggle:active {
             transform: scale(0.98);
         }
+
+        /* Feature Grid Styling */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+            justify-content: space-between;
+        }
+
+        .card {
+            flex: 1 1 calc(33% - 20px); /* Three columns layout */
+            min-width: 250px;
+            background-color: var(--primary-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 600px) {
+            .card {
+                flex: 1 1 100%;
+            }
+        }
+
+        /* List Styling */
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            background: var(--secondary-bg);
+            margin-bottom: 10px;
+            padding: 10px;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: var(--primary-bg);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--secondary-bg);
+        }
+
+        /* Form Styling */
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea,
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            transition: border-color 0.3s;
+        }
+        
+        form input:focus, form textarea:focus, form select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+        }
+
+        /* Image Styling */
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body class="light-mode">
     <div class="container">
         <button id="theme-toggle">Toggle Dark Mode</button>
-        <h1 class="main-heading">Hello, World!</h1>
-        <p>This is a professionally styled page demonstrating a simple "Hello World" concept. The color scheme and layout have been improved, and a light/dark mode toggle has been added for enhanced user experience.</p>
+        <h1 class="main-heading">Comprehensive HTML Demo</h1>
+        <p>This page demonstrates various HTML elements and CSS capabilities, including responsive design, accessibility features, and dynamic theming. It showcases the full potential of modern web development.</p>
+
+        <!-- Feature Grid Section -->
+        <section>
+            <h2>Core Features Demonstration</h2>
+            <div class="feature-grid">
+                <div class="card">
+                    <h3>Semantic HTML</h3>
+                    <p>Using tags like <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;aside&gt;</code> ensures the page structure is meaningful for SEO and accessibility.</p>
+                </div>
+                <div class="card">
+                    <h3>CSS Variables</h3>
+                    <p>The use of <code>:root</code> variables allows for global theme management (light/dark mode) with minimal code changes.</p>
+                </div>
+                <div class="card">
+                    <h3>Responsiveness</h3>
+                    <p>The layout uses Flexbox and media queries, ensuring content looks good on mobile, tablet, and desktop devices.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Section -->
+        <div class="image-container">
+            <h2>Visual Content</h2>
+            <img src="https://via.placeholder.com/800x300/007bff/ffffff?text=Placeholder+Image+for+Demonstration" alt="Placeholder image demonstrating visual content">
+        </div>
+
+        <!-- List Section -->
+        <section>
+            <h2>Key Takeaways (Unordered List)</h2>
+            <ul class="info-list">
+                <li><strong>Semantic Structure:</strong> Use appropriate tags for meaning.</li>
+                <li><strong>Interactivity:</strong> JavaScript can enhance user experience (like the theme toggle).</li>
+                <li><strong>Styling Power:</strong> CSS handles layout, aesthetics, and themes.</li>
+            </ul>
+        </section>
+
+        <!-- Table Section -->
+        <section>
+            <h2>Data Table Example (Structured Data)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Status</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HTML5</td>
+                        <td>Complete</td>
+                        <td>Provides structure and semantics.</td>
+                    </tr>
+                    <tr>
+                        <td>CSS3</td>
+                        <td>Complete</td>
+                        <td>Handles styling and layout.</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>Functional</td>
+                        <td>Adds interactivity and behavior.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Form Section -->
+        <section>
+            <h2>Contact Form Example</h2>
+            <form>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                <label for="subject">Subject:</label>
+                <select id="subject" name="subject">
+                    <option value="">-- Select Subject --</option>
+                    <option value="inquiry">General Inquiry</option>
+                    <option value="support">Technical Support</option>
+                </select>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Your detailed message here..."></textarea>
+
+                <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">Send Message</button>
+            </form>
+        </section>
     </div>
 
     <script>
-        const body = document.body;
-        const toggleButton = document.getElementById('theme-toggle');
-
-        // Function to initialize the theme based on stored preference or system preference
-        function initializeTheme() {
-            // Check local storage first
-            const storedTheme = localStorage.getItem('theme');
-            if (storedTheme) {
-                body.className = storedTheme;
-            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                // Fallback to system preference
-                body.className = 'dark-mode';
-            } else {
-                body.className = 'light-mode';
-            }
-        }
-
-        // Function to handle the theme toggle
-        function toggleTheme() {
-            if (body.classList.contains('light-mode')) {
-                body.classList.remove('light-mode');
-                body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark-mode');
-            } else {
-                body.classList.remove('dark-mode');
-                body.classList.add('light-mode');
-                localStorage.setItem('theme', 'light-mode');
-            }
-        }
-
-        // Event Listener and Initialization
-        toggleButton.addEventListener('click', toggleTheme);
-        initializeTheme();
+        // Script for demonstration purposes (optional)
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Form submitted successfully! (This is a demo)');
+        });
     </script>
 </body>
 </html>
